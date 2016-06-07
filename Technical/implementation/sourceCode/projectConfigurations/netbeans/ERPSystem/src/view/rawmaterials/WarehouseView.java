@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.rawmaterials;
+package view.rawmaterials;
 
 /**
  *
  * @author memam
  */
-public class Warehouse extends javax.swing.JFrame {
+public class WarehouseView extends javax.swing.JFrame {
 
     /**
      * Creates new form Warehouse
      */
-    public Warehouse() {
+    public WarehouseView() {
         initComponents();
     }
 
@@ -349,15 +349,16 @@ public class Warehouse extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Warehouse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WarehouseView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
         
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new Warehouse().setVisible(true);
+            new WarehouseView().setVisible(true);
         });
     }
 
