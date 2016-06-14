@@ -5,6 +5,14 @@
  */
 package view;
 
+import entities.RawMaterial;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Set;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author memam
@@ -42,7 +50,7 @@ public class WarehouseView extends javax.swing.JFrame {
         jlblCodeFilteration = new javax.swing.JLabel();
         jcbCodeFilteration = new javax.swing.JComboBox();
         jlblTypeFilteration = new javax.swing.JLabel();
-        jcbTypeFilteration1 = new javax.swing.JComboBox();
+        jcbTypeFilteration = new javax.swing.JComboBox();
         jpAddQty = new javax.swing.JPanel();
         jlblAddQtyCode = new javax.swing.JLabel();
         jcbAddQtyCode = new javax.swing.JComboBox();
@@ -152,24 +160,19 @@ public class WarehouseView extends javax.swing.JFrame {
         jlblCodeFilteration.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jlblCodeFilteration.setText("جرد لكود");
 
-        jcbCodeFilteration.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jlblTypeFilteration.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jlblTypeFilteration.setText("جرد لنوع");
-
-        jcbTypeFilteration1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jpAddQty.setBorder(javax.swing.BorderFactory.createTitledBorder("إضافة كمية"));
 
         jlblAddQtyCode.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jlblAddQtyCode.setText("كود");
 
-        jcbAddQtyCode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jlblAddQtyQty.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jlblAddQtyQty.setText("كمية");
 
         jftAddQtyQty.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        jftAddQtyQty.setText("0");
 
         jbtnAddQty.setText("إضافة");
 
@@ -178,7 +181,7 @@ public class WarehouseView extends javax.swing.JFrame {
         jpAddQtyLayout.setHorizontalGroup(
             jpAddQtyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAddQtyLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addGroup(jpAddQtyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jbtnAddQty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jpAddQtyLayout.createSequentialGroup()
@@ -213,8 +216,7 @@ public class WarehouseView extends javax.swing.JFrame {
         jlblWithdrawQtyCode.setText("كــــود");
 
         jftWithdrawQtyQty.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
-
-        jcbWithdrawQtyCode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jftWithdrawQtyQty.setText("0");
 
         jlblWithdrawQtyQty.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jlblWithdrawQtyQty.setText("كـــمية");
@@ -276,7 +278,7 @@ public class WarehouseView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jpAddQty, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpAddQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -284,7 +286,7 @@ public class WarehouseView extends javax.swing.JFrame {
                     .addGroup(jpCompanyHeaderLayout.createSequentialGroup()
                         .addComponent(jbtnAddNewMaterial)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jcbTypeFilteration1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jcbTypeFilteration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
                         .addComponent(jlblTypeFilteration)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -308,7 +310,7 @@ public class WarehouseView extends javax.swing.JFrame {
                             .addComponent(jlblCodeFilteration)
                             .addComponent(jcbCodeFilteration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlblTypeFilteration)
-                            .addComponent(jcbTypeFilteration1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jcbTypeFilteration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jSeparator1)
                     .addGroup(jpCompanyHeaderLayout.createSequentialGroup()
                         .addGroup(jpCompanyHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -332,36 +334,79 @@ public class WarehouseView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(WarehouseView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new WarehouseView().setVisible(true);
+    public void addNewMaterialListener(ActionListener listener) {
+        jbtnAddNewMaterial.addActionListener(listener);
+    }
+    public void addExtraQtyListener(ActionListener listener) {
+        jbtnAddQty.addActionListener(listener);
+    }
+    public void addWithdrawSomeMaterialListener(ActionListener listener) {
+        jbtnWithdrawQty.addActionListener(listener);
+    }
+    
+    /**
+     *
+     * @param codes
+     */
+    public void setupMaterialsCode(Set<Integer> codes) {
+        this.materialsCode = codes;
+        this.materialsCode.stream().map((code) -> {
+            jcbAddQtyCode.addItem(code);
+            return code;
+        }).forEach((code) -> {
+            jcbWithdrawQtyCode.addItem(code);
         });
     }
+    public void setupInventory(Collection<RawMaterial> materials) {
+        int rowIndex = 0, colIndex;
+        ((DefaultTableModel) jtInventory.getModel()).setRowCount(materials.size());
 
+        for (RawMaterial material : materials) {
+            colIndex = 0;
+            jtInventory.getModel().setValueAt(material.getQty(), rowIndex, colIndex++);
+            jtInventory.getModel().setValueAt(material.getDescription(), rowIndex, colIndex++);
+            jtInventory.getModel().setValueAt(material.getName(), rowIndex, colIndex++);
+            jtInventory.getModel().setValueAt(material.getId(), rowIndex, colIndex++);
+            rowIndex++;
+        }
+    }
+    
+    public void updateMaterialQty(int id, int qty) {
+        jtInventory.getModel().setValueAt(qty, new ArrayList<>(this.materialsCode).indexOf(id), 0);
+    }
+    
+    /**
+     * 
+     * @return values of material ID and material added quantity
+     */
+    public int[] getExtraQtyInfo() {
+        int[] codeQty = new int[2];
+                
+        codeQty[0] = (Integer) jcbAddQtyCode.getSelectedItem();
+        codeQty[1] = Integer.parseInt(jftAddQtyQty.getText());
+        
+        return codeQty;
+    }
+    /**
+     * 
+     * @return values of material ID and material withdrawn quantity
+     */
+    public int[] getWithdrawQtyInfo() {
+        int[] codeQty = new int[2];
+                
+        codeQty[0] = (Integer) jcbWithdrawQtyCode.getSelectedItem();
+        
+        int qty = Integer.parseInt(jftWithdrawQtyQty.getText());
+        codeQty[1] = qty < 0 ? qty * -1 : qty; // if the user enters positive or negative, the result will be the same
+                
+        return codeQty;
+    }
+    
+    public void warnUser(String message) {
+        JOptionPane.showMessageDialog(this, message, "تحذير", JOptionPane.ERROR_MESSAGE);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
@@ -370,7 +415,7 @@ public class WarehouseView extends javax.swing.JFrame {
     private javax.swing.JButton jbtnWithdrawQty;
     private javax.swing.JComboBox jcbAddQtyCode;
     private javax.swing.JComboBox jcbCodeFilteration;
-    private javax.swing.JComboBox jcbTypeFilteration1;
+    private javax.swing.JComboBox jcbTypeFilteration;
     private javax.swing.JComboBox jcbWithdrawEmployee;
     private javax.swing.JComboBox jcbWithdrawQtyCode;
     private javax.swing.JFormattedTextField jftAddQtyQty;
@@ -394,4 +439,5 @@ public class WarehouseView extends javax.swing.JFrame {
     private javax.swing.JTable jtInventory;
     private javax.swing.JTextField jtfLoginName;
     // End of variables declaration//GEN-END:variables
+    private Set<Integer> materialsCode;
 }
