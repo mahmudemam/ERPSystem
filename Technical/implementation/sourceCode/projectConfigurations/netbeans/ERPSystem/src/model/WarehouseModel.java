@@ -34,8 +34,15 @@ public class WarehouseModel {
         return materials.keySet();
     }
 
-    public int addNewMaterial(String name, String desc, int qty, int price) {
-        return 1;
+    public int addNewMaterial(String name, String desc, int qty, int price) throws SQLException {
+        int materialID = 0;
+        
+        materialID = dbInstance.addNewMaterial(new RawMaterial(0, name, desc, qty, price));
+        if (materialID > 0) {
+            materials.put(materialID, new RawMaterial(materialID, name, desc, qty, price));
+        }
+        
+        return materialID;
     }
 
     public RawMaterial addExtraQty(int id, int qty) throws SQLException {

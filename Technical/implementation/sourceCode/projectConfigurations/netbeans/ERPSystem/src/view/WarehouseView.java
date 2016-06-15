@@ -45,8 +45,7 @@ public class WarehouseView extends javax.swing.JFrame {
         jftLoginTime = new javax.swing.JFormattedTextField();
         jspInventory = new javax.swing.JScrollPane();
         jtInventory = new javax.swing.JTable();
-        jbtnAddNewMaterial = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator = new javax.swing.JSeparator();
         jlblCodeFilteration = new javax.swing.JLabel();
         jcbCodeFilteration = new javax.swing.JComboBox();
         jlblTypeFilteration = new javax.swing.JLabel();
@@ -57,7 +56,7 @@ public class WarehouseView extends javax.swing.JFrame {
         jlblAddQtyQty = new javax.swing.JLabel();
         jftAddQtyQty = new javax.swing.JFormattedTextField();
         jbtnAddQty = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jpWithdrawQty = new javax.swing.JPanel();
         jlblWithdrawQtyCode = new javax.swing.JLabel();
         jftWithdrawQtyQty = new javax.swing.JFormattedTextField();
         jcbWithdrawQtyCode = new javax.swing.JComboBox();
@@ -65,6 +64,16 @@ public class WarehouseView extends javax.swing.JFrame {
         jlblWithdrawEmployee = new javax.swing.JLabel();
         jcbWithdrawEmployee = new javax.swing.JComboBox();
         jbtnWithdrawQty = new javax.swing.JButton();
+        jpAddMaterial = new javax.swing.JPanel();
+        jbtnAddNewMaterial = new javax.swing.JButton();
+        jlblMaterialName = new javax.swing.JLabel();
+        jtfMaterialName = new javax.swing.JTextField();
+        jlblMaterialDesc = new javax.swing.JLabel();
+        jtfMaterialDesc = new javax.swing.JTextField();
+        jlblMaterialQty = new javax.swing.JLabel();
+        jftMaterialQty = new javax.swing.JFormattedTextField();
+        jlblMaterialPrice = new javax.swing.JLabel();
+        jftMaterialPrice = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,7 +136,7 @@ public class WarehouseView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jspInventory.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "جرد", javax.swing.border.TitledBorder.TRAILING, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jspInventory.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "المواد الخام", javax.swing.border.TitledBorder.TRAILING, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         jtInventory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,9 +162,7 @@ public class WarehouseView extends javax.swing.JFrame {
         jspInventory.setViewportView(jtInventory);
         jtInventory.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        jbtnAddNewMaterial.setText("أضف خامة جديدة");
-
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jlblCodeFilteration.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jlblCodeFilteration.setText("جرد لكود");
@@ -210,7 +217,7 @@ public class WarehouseView extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("صرف خامة"));
+        jpWithdrawQty.setBorder(javax.swing.BorderFactory.createTitledBorder("صرف خامة"));
 
         jlblWithdrawQtyCode.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jlblWithdrawQtyCode.setText("كــــود");
@@ -228,44 +235,117 @@ public class WarehouseView extends javax.swing.JFrame {
 
         jbtnWithdrawQty.setText("صرف");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpWithdrawQtyLayout = new javax.swing.GroupLayout(jpWithdrawQty);
+        jpWithdrawQty.setLayout(jpWithdrawQtyLayout);
+        jpWithdrawQtyLayout.setHorizontalGroup(
+            jpWithdrawQtyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpWithdrawQtyLayout.createSequentialGroup()
                 .addComponent(jbtnWithdrawQty, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jpWithdrawQtyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpWithdrawQtyLayout.createSequentialGroup()
+                        .addGroup(jpWithdrawQtyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jftWithdrawQtyQty)
                             .addComponent(jcbWithdrawQtyCode, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpWithdrawQtyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlblWithdrawQtyCode, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jlblWithdrawQtyQty, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpWithdrawQtyLayout.createSequentialGroup()
                         .addComponent(jcbWithdrawEmployee, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jlblWithdrawEmployee)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jpWithdrawQtyLayout.setVerticalGroup(
+            jpWithdrawQtyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpWithdrawQtyLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpWithdrawQtyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlblWithdrawQtyCode)
                     .addComponent(jcbWithdrawQtyCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpWithdrawQtyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlblWithdrawQtyQty)
                     .addComponent(jftWithdrawQtyQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnWithdrawQty))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpWithdrawQtyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlblWithdrawEmployee)
                     .addComponent(jcbWithdrawEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jpAddMaterial.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "أضف خامة", javax.swing.border.TitledBorder.TRAILING, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        jbtnAddNewMaterial.setText("أضف");
+
+        jlblMaterialName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jlblMaterialName.setText("أسم الخامة");
+
+        jlblMaterialDesc.setText("وصف الخامة");
+
+        jlblMaterialQty.setText("الكمية");
+
+        jftMaterialQty.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        jftMaterialQty.setText("0");
+
+        jlblMaterialPrice.setText("السعر");
+
+        jftMaterialPrice.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        jftMaterialPrice.setText("0");
+
+        javax.swing.GroupLayout jpAddMaterialLayout = new javax.swing.GroupLayout(jpAddMaterial);
+        jpAddMaterial.setLayout(jpAddMaterialLayout);
+        jpAddMaterialLayout.setHorizontalGroup(
+            jpAddMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAddMaterialLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jpAddMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAddMaterialLayout.createSequentialGroup()
+                        .addComponent(jftMaterialQty, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jlblMaterialQty))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAddMaterialLayout.createSequentialGroup()
+                        .addComponent(jftMaterialPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jlblMaterialPrice)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGroup(jpAddMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbtnAddNewMaterial)
+                    .addGroup(jpAddMaterialLayout.createSequentialGroup()
+                        .addGroup(jpAddMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtfMaterialDesc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfMaterialName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpAddMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jlblMaterialDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jlblMaterialName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        jpAddMaterialLayout.setVerticalGroup(
+            jpAddMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAddMaterialLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpAddMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpAddMaterialLayout.createSequentialGroup()
+                        .addGroup(jpAddMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlblMaterialName)
+                            .addComponent(jtfMaterialName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpAddMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtfMaterialDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlblMaterialDesc)))
+                    .addGroup(jpAddMaterialLayout.createSequentialGroup()
+                        .addGroup(jpAddMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlblMaterialQty)
+                            .addComponent(jftMaterialQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpAddMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlblMaterialPrice)
+                            .addComponent(jftMaterialPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbtnAddNewMaterial)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -276,16 +356,18 @@ public class WarehouseView extends javax.swing.JFrame {
             .addComponent(jpLoginInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jpCompanyHeaderLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jpCompanyHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jpCompanyHeaderLayout.createSequentialGroup()
+                        .addComponent(jpWithdrawQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jpAddQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpAddMaterial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jpAddQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpCompanyHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpCompanyHeaderLayout.createSequentialGroup()
-                        .addComponent(jbtnAddNewMaterial)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jcbTypeFilteration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
                         .addComponent(jlblTypeFilteration)
@@ -294,7 +376,7 @@ public class WarehouseView extends javax.swing.JFrame {
                         .addGap(4, 4, 4)
                         .addComponent(jlblCodeFilteration)
                         .addContainerGap())
-                    .addComponent(jspInventory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)))
+                    .addComponent(jspInventory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)))
         );
         jpCompanyHeaderLayout.setVerticalGroup(
             jpCompanyHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,17 +388,18 @@ public class WarehouseView extends javax.swing.JFrame {
                         .addComponent(jspInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jpCompanyHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jbtnAddNewMaterial)
                             .addComponent(jlblCodeFilteration)
                             .addComponent(jcbCodeFilteration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlblTypeFilteration)
                             .addComponent(jcbTypeFilteration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jSeparator1)
+                    .addComponent(jSeparator)
                     .addGroup(jpCompanyHeaderLayout.createSequentialGroup()
                         .addGroup(jpCompanyHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jpAddQty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 158, Short.MAX_VALUE))))
+                            .addComponent(jpWithdrawQty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jpAddMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(24, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -403,13 +486,32 @@ public class WarehouseView extends javax.swing.JFrame {
         return codeQty;
     }
     
+    public String getNewMaterialName() {
+        return jtfMaterialName.getText();
+    }
+    
+    public String getNewMaterialDesc() {
+        return jtfMaterialDesc.getText();
+    }
+    
+    public int getNewMaterialQty() {
+        return Integer.parseInt(jftMaterialQty.getText());
+    }
+    
+    public int getNewMaterialPrice() {
+        return Integer.parseInt(jftMaterialPrice.getText());
+    }
+    
+    public void addNewMaterial(int id, String name, String desc, int qty, int price) {
+        DefaultTableModel model = (DefaultTableModel) jtInventory.getModel();
+        model.addRow(new Object[] {qty, desc, name, id});
+    }
     public void warnUser(String message) {
         JOptionPane.showMessageDialog(this, message, "تحذير", JOptionPane.ERROR_MESSAGE);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator;
     private javax.swing.JButton jbtnAddNewMaterial;
     private javax.swing.JButton jbtnAddQty;
     private javax.swing.JButton jbtnWithdrawQty;
@@ -421,6 +523,8 @@ public class WarehouseView extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jftAddQtyQty;
     private javax.swing.JFormattedTextField jftLoginDate;
     private javax.swing.JFormattedTextField jftLoginTime;
+    private javax.swing.JFormattedTextField jftMaterialPrice;
+    private javax.swing.JFormattedTextField jftMaterialQty;
     private javax.swing.JFormattedTextField jftWithdrawQtyQty;
     private javax.swing.JLabel jlblAddQtyCode;
     private javax.swing.JLabel jlblAddQtyQty;
@@ -428,16 +532,24 @@ public class WarehouseView extends javax.swing.JFrame {
     private javax.swing.JLabel jlblLoginDate;
     private javax.swing.JLabel jlblLoginName;
     private javax.swing.JLabel jlblLoginTime;
+    private javax.swing.JLabel jlblMaterialDesc;
+    private javax.swing.JLabel jlblMaterialName;
+    private javax.swing.JLabel jlblMaterialPrice;
+    private javax.swing.JLabel jlblMaterialQty;
     private javax.swing.JLabel jlblTypeFilteration;
     private javax.swing.JLabel jlblWithdrawEmployee;
     private javax.swing.JLabel jlblWithdrawQtyCode;
     private javax.swing.JLabel jlblWithdrawQtyQty;
+    private javax.swing.JPanel jpAddMaterial;
     private javax.swing.JPanel jpAddQty;
     private javax.swing.JPanel jpCompanyHeader;
     private javax.swing.JPanel jpLoginInfo;
+    private javax.swing.JPanel jpWithdrawQty;
     private javax.swing.JScrollPane jspInventory;
     private javax.swing.JTable jtInventory;
     private javax.swing.JTextField jtfLoginName;
+    private javax.swing.JTextField jtfMaterialDesc;
+    private javax.swing.JTextField jtfMaterialName;
     // End of variables declaration//GEN-END:variables
     private Set<Integer> materialsCode;
 }

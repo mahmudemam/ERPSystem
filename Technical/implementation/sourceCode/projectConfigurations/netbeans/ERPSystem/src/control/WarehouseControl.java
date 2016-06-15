@@ -39,7 +39,25 @@ public class WarehouseControl {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            String name = theView.getNewMaterialName();
+            String desc = theView.getNewMaterialDesc();
+            int qty = theView.getNewMaterialQty();
+            int price = theView.getNewMaterialPrice();
+                        
+            if (name != null && desc != null) {
+                if (qty >= 0 && price >= 0) {
+                    try {
+                        int id = theModel.addNewMaterial(name, desc, qty, price);
+                        theView.addNewMaterial(id, name, desc, qty, price);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(WarehouseControl.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    theView.warnUser("الكمية أو السعر يجب أن يكونوا موجبين");
+                }
+            } else {
+                theView.warnUser("الأسم أو الوصف غير ممتلئين");
+            }
         }
     }
 
