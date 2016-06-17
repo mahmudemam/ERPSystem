@@ -32,7 +32,9 @@ public class WarehouseControl {
         this.theView.addWithdrawSomeMaterialListener(new WithdrawSomeMaterialListener());
 
         this.theView.setupMaterialsCode(theModel.getMaterialsCode());
-        this.theView.setupInventory(theModel.getMaterials());
+        for (RawMaterial material : this.theModel.getMaterials()) {
+            this.theView.addNewMaterial(material.getId(), material.getName(), material.getDescription(), material.getQty(), (int) material.getPrice());
+        }
     }
 
     private class NewMaterialListener implements ActionListener {

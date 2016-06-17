@@ -140,13 +140,10 @@ public class WarehouseView extends javax.swing.JFrame {
 
         jtInventory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "الكمية", "الصنف", "الأسم", "كود"
+                "الكمية", "الوصف", "الأسم", "كود"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -417,17 +414,18 @@ public class WarehouseView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-
     public void addNewMaterialListener(ActionListener listener) {
         jbtnAddNewMaterial.addActionListener(listener);
     }
+
     public void addExtraQtyListener(ActionListener listener) {
         jbtnAddQty.addActionListener(listener);
     }
+
     public void addWithdrawSomeMaterialListener(ActionListener listener) {
         jbtnWithdrawQty.addActionListener(listener);
     }
-    
+
     /**
      *
      * @param codes
@@ -441,75 +439,64 @@ public class WarehouseView extends javax.swing.JFrame {
             jcbWithdrawQtyCode.addItem(code);
         });
     }
-    public void setupInventory(Collection<RawMaterial> materials) {
-        int rowIndex = 0, colIndex;
-        ((DefaultTableModel) jtInventory.getModel()).setRowCount(materials.size());
 
-        for (RawMaterial material : materials) {
-            colIndex = 0;
-            jtInventory.getModel().setValueAt(material.getQty(), rowIndex, colIndex++);
-            jtInventory.getModel().setValueAt(material.getDescription(), rowIndex, colIndex++);
-            jtInventory.getModel().setValueAt(material.getName(), rowIndex, colIndex++);
-            jtInventory.getModel().setValueAt(material.getId(), rowIndex, colIndex++);
-            rowIndex++;
-        }
-    }
-    
     public void updateMaterialQty(int id, int qty) {
         jtInventory.getModel().setValueAt(qty, new ArrayList<>(this.materialsCode).indexOf(id), 0);
     }
-    
+
+    public void addNewMaterial(int id, String name, String desc, int qty, int price) {
+        DefaultTableModel model = (DefaultTableModel) jtInventory.getModel();
+        model.addRow(new Object[]{qty, desc, name, id});
+    }
+
     /**
-     * 
+     *
      * @return values of material ID and material added quantity
      */
     public int[] getExtraQtyInfo() {
         int[] codeQty = new int[2];
-                
+
         codeQty[0] = (Integer) jcbAddQtyCode.getSelectedItem();
         codeQty[1] = Integer.parseInt(jftAddQtyQty.getText());
-        
+
         return codeQty;
     }
+
     /**
-     * 
+     *
      * @return values of material ID and material withdrawn quantity
      */
     public int[] getWithdrawQtyInfo() {
         int[] codeQty = new int[2];
-                
+
         codeQty[0] = (Integer) jcbWithdrawQtyCode.getSelectedItem();
-        
+
         int qty = Integer.parseInt(jftWithdrawQtyQty.getText());
         codeQty[1] = qty < 0 ? qty * -1 : qty; // if the user enters positive or negative, the result will be the same
-                
+
         return codeQty;
     }
-    
+
     public String getNewMaterialName() {
         return jtfMaterialName.getText();
     }
-    
+
     public String getNewMaterialDesc() {
         return jtfMaterialDesc.getText();
     }
-    
+
     public int getNewMaterialQty() {
         return Integer.parseInt(jftMaterialQty.getText());
     }
-    
+
     public int getNewMaterialPrice() {
         return Integer.parseInt(jftMaterialPrice.getText());
     }
-    
-    public void addNewMaterial(int id, String name, String desc, int qty, int price) {
-        DefaultTableModel model = (DefaultTableModel) jtInventory.getModel();
-        model.addRow(new Object[] {qty, desc, name, id});
-    }
+
     public void warnUser(String message) {
         JOptionPane.showMessageDialog(this, message, "تحذير", JOptionPane.ERROR_MESSAGE);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSeparator jSeparator;
     private javax.swing.JButton jbtnAddNewMaterial;
