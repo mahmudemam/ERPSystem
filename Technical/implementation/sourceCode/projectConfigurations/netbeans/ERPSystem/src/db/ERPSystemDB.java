@@ -29,7 +29,7 @@ public class ERPSystemDB {
             + "VALUES (?, ?, ?, ?);";
 
     private ERPSystemDB() throws SQLException {
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ERPSystem?useSSL=false",
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ERPSystem?useSSL=false&useUnicode=yes&characterEncoding=UTF-8",
                 "erpSystemAdmin", "erp_System_Admin1#");
         stmt = conn.createStatement();
         addNewMaterialStmt = conn.prepareStatement(addNewMaterialStr, Statement.RETURN_GENERATED_KEYS);
