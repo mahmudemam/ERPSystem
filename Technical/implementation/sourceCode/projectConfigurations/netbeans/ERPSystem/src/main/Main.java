@@ -6,7 +6,7 @@
 package main;
 
 import control.WarehouseControl;
-import java.sql.SQLException;
+import entities.WarehouseException;
 import model.WarehouseModel;
 import view.WarehouseView;
 
@@ -15,7 +15,7 @@ import view.WarehouseView;
  * @author memam
  */
 public class Main {
-    public static void main(String args[]) throws SQLException {
+    public static void main(String args[]) throws WarehouseException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

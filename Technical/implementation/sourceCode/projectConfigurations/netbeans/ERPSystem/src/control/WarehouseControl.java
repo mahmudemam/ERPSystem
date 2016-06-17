@@ -6,11 +6,11 @@
 package control;
 
 import entities.RawMaterial;
+import entities.WarehouseException;
 import model.WarehouseModel;
 import view.WarehouseView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -51,7 +51,7 @@ public class WarehouseControl {
                     try {
                         int id = theModel.addNewMaterial(name, desc, qty, price);
                         theView.addNewMaterial(id, name, desc, qty, price);
-                    } catch (SQLException ex) {
+                    } catch (WarehouseException ex) {
                         Logger.getLogger(WarehouseControl.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
@@ -76,7 +76,7 @@ public class WarehouseControl {
                     if (material != null) {
                         theView.updateMaterialQty(material.getId(), material.getQty());
                     }
-                } catch (SQLException ex) {
+                } catch (WarehouseException ex) {
                     Logger.getLogger(WarehouseControl.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -95,7 +95,7 @@ public class WarehouseControl {
                 } else {
                     theView.warnUser("الكمية المراد صرفها غير متوفرة!");
                 }
-            } catch (SQLException ex) {
+            } catch (WarehouseException ex) {
                 Logger.getLogger(WarehouseControl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
