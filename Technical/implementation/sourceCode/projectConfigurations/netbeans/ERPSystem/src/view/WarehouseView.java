@@ -5,10 +5,8 @@
  */
 package view;
 
-import entities.RawMaterial;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
