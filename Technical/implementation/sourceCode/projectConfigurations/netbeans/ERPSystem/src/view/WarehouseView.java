@@ -7,6 +7,7 @@ package view;
 
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -424,20 +425,6 @@ public class WarehouseView extends javax.swing.JFrame {
         jbtnWithdrawQty.addActionListener(listener);
     }
 
-    /**
-     *
-     * @param codes
-     */
-    public void setupMaterialsCode(Set<Integer> codes) {
-        this.materialsCode = codes;
-        this.materialsCode.stream().map((code) -> {
-            jcbAddQtyCode.addItem(code);
-            return code;
-        }).forEach((code) -> {
-            jcbWithdrawQtyCode.addItem(code);
-        });
-    }
-
     public void updateMaterialQty(int id, int qty) {
         jtInventory.getModel().setValueAt(qty, new ArrayList<>(this.materialsCode).indexOf(id), 0);
     }
@@ -445,6 +432,9 @@ public class WarehouseView extends javax.swing.JFrame {
     public void addNewMaterial(int id, String name, String desc, int qty, int price) {
         DefaultTableModel model = (DefaultTableModel) jtInventory.getModel();
         model.addRow(new Object[]{qty, desc, name, id});
+        materialsCode.add(id);
+        jcbAddQtyCode.addItem(id);
+        jcbWithdrawQtyCode.addItem(id);
     }
 
     public int getExtraQtyId() {
@@ -464,7 +454,6 @@ public class WarehouseView extends javax.swing.JFrame {
         return (qty < 0 ? qty * -1 : qty); // if the user enters positive or negative, the result will be the same
     }
 
-    
     public String getNewMaterialName() {
         return jtfMaterialName.getText();
     }
@@ -526,5 +515,5 @@ public class WarehouseView extends javax.swing.JFrame {
     private javax.swing.JTextField jtfMaterialDesc;
     private javax.swing.JTextField jtfMaterialName;
     // End of variables declaration//GEN-END:variables
-    private Set<Integer> materialsCode;
+    private Set<Integer> materialsCode = new LinkedHashSet<>();
 }

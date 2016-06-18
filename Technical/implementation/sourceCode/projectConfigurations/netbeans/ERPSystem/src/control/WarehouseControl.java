@@ -31,7 +31,6 @@ public class WarehouseControl {
         this.theView.addExtraQtyListener(new ExtraQtyListener());
         this.theView.addWithdrawSomeMaterialListener(new WithdrawSomeMaterialListener());
 
-        this.theView.setupMaterialsCode(theModel.getMaterialsCode());
         this.theModel.getMaterials().stream().forEach((material) -> {
             this.theView.addNewMaterial(material.getId(), material.getName(), material.getDescription(), material.getQty(), (int) material.getPrice());
         });
