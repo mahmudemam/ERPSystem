@@ -454,22 +454,17 @@ public class WarehouseView extends javax.swing.JFrame {
     public int getExtraQtyQty() {
         return Integer.parseInt(jftAddQtyQty.getText());
     }
-
-    /**
-     *
-     * @return values of material ID and material withdrawn quantity
-     */
-    public int[] getWithdrawQtyInfo() {
-        int[] codeQty = new int[2];
-
-        codeQty[0] = (Integer) jcbWithdrawQtyCode.getSelectedItem();
-
+    
+    public int getWithdrawQtyId() {
+        return (Integer) jcbWithdrawQtyCode.getSelectedItem();
+    }
+    
+    public int getWithdrawQtyQty() {
         int qty = Integer.parseInt(jftWithdrawQtyQty.getText());
-        codeQty[1] = qty < 0 ? qty * -1 : qty; // if the user enters positive or negative, the result will be the same
-
-        return codeQty;
+        return (qty < 0 ? qty * -1 : qty); // if the user enters positive or negative, the result will be the same
     }
 
+    
     public String getNewMaterialName() {
         return jtfMaterialName.getText();
     }

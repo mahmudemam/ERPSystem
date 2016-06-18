@@ -88,9 +88,10 @@ public class WarehouseControl {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            final int[] withdrawQtyInfo = theView.getWithdrawQtyInfo();
+            int id = theView.getWithdrawQtyId();
+            int qty = theView.getWithdrawQtyQty();
             try {
-                RawMaterial material = theModel.withdrawSomeMaterial(withdrawQtyInfo[0], withdrawQtyInfo[1]);
+                RawMaterial material = theModel.withdrawSomeMaterial(id, qty);
                 if (material != null) {
                     theView.updateMaterialQty(material.getId(), material.getQty());
                 } else {
