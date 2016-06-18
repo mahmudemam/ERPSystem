@@ -46,7 +46,7 @@ public class WarehouseControl {
             int qty = theView.getNewMaterialQty();
             int price = theView.getNewMaterialPrice();
                         
-            if (name != null && desc != null) {
+            if ((name != null && !name.equals("")) && desc != null) {
                 if (qty >= 0 && price >= 0) {
                     try {
                         int id = theModel.addNewMaterial(name, desc, qty, price);
