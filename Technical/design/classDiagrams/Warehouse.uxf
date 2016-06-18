@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>104</x>
-      <y>144</y>
+      <x>616</x>
+      <y>136</y>
       <w>328</w>
       <h>112</h>
     </coordinates>
@@ -26,8 +26,8 @@ fontsize=11</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>112</y>
+      <x>992</x>
+      <y>104</y>
       <w>344</w>
       <h>176</h>
     </coordinates>
@@ -61,8 +61,8 @@ fontsize=11</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>328</y>
+      <x>992</x>
+      <y>320</y>
       <w>344</w>
       <h>184</h>
     </coordinates>
@@ -90,8 +90,8 @@ fontsize=11</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>424</x>
-      <y>192</y>
+      <x>936</x>
+      <y>184</y>
       <w>72</w>
       <h>24</h>
     </coordinates>
@@ -101,8 +101,8 @@ fontsize=11</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
-      <y>280</y>
+      <x>1152</x>
+      <y>272</y>
       <w>24</w>
       <h>64</h>
     </coordinates>
@@ -112,8 +112,8 @@ fontsize=11</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>600</x>
-      <y>32</y>
+      <x>1112</x>
+      <y>24</y>
       <w>144</w>
       <h>32</h>
     </coordinates>
@@ -125,8 +125,8 @@ fontsize=11</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>600</x>
-      <y>56</y>
+      <x>1112</x>
+      <y>48</y>
       <w>24</w>
       <h>112</h>
     </coordinates>
@@ -136,8 +136,8 @@ fontsize=11</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>704</x>
-      <y>56</y>
+      <x>1216</x>
+      <y>48</y>
       <w>24</w>
       <h>144</h>
     </coordinates>
@@ -147,8 +147,8 @@ fontsize=11</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>56</y>
+      <x>1240</x>
+      <y>48</y>
       <w>24</w>
       <h>184</h>
     </coordinates>
@@ -158,8 +158,8 @@ fontsize=11</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>104</x>
-      <y>328</y>
+      <x>616</x>
+      <y>320</y>
       <w>328</w>
       <h>176</h>
     </coordinates>
@@ -186,12 +186,84 @@ fontsize=11</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>256</x>
-      <y>248</y>
+      <x>768</x>
+      <y>240</y>
       <w>24</w>
       <h>96</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>288</y>
+      <w>120</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>_:WarehouseModel_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>152</x>
+      <y>408</y>
+      <w>120</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>_:WarehouseControl_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>344</x>
+      <y>216</y>
+      <w>120</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>_:WarehouseView_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>48</x>
+      <y>304</y>
+      <w>144</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>getMaterials
+addNewMaterial
+addExtraQty
+withdrawSomeMaterial</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0;130.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>264</x>
+      <y>232</y>
+      <w>336</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>addNewMaterialListener
+addExtraQtyListener
+addWithdrawSomeMaterialListener
+addNewMaterial
+getNewMaterialName
+getNewMaterialDesc, 
+getNewMaterialQty
+getNewMaterialPrice
+getExtraQtyId
+getExtraQtyQty
+getWithdrawQtyId
+getWithdrawQtyQty
+updateMaterialQty
+warnUser</panel_attributes>
+    <additional_attributes>170.0;10.0;170.0;240.0;10.0;240.0</additional_attributes>
   </element>
 </diagram>
