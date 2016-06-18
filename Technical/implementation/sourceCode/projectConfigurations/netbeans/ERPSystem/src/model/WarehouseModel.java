@@ -5,7 +5,7 @@
  */
 package model;
 
-import db.ERPSystemDB;
+import db.WarehouseDB;
 import entities.RawMaterial;
 import entities.WarehouseException;
 import java.sql.SQLException;
@@ -20,11 +20,11 @@ import java.util.Set;
 public class WarehouseModel {
 
     private Map<Integer, RawMaterial> materials;
-    private ERPSystemDB dbInstance = null;
+    private WarehouseDB dbInstance = null;
 
     public WarehouseModel() throws WarehouseException {
         try {
-            dbInstance = ERPSystemDB.getInstance();
+            dbInstance = WarehouseDB.getInstance();
             materials = dbInstance.getMaterials();
         } catch (SQLException ex) {
             throw new WarehouseException("ErrorCode=" + ex.getErrorCode() + "; ErrorMessage: " + ex.getMessage(), ex.getCause());
