@@ -447,17 +447,12 @@ public class WarehouseView extends javax.swing.JFrame {
         model.addRow(new Object[]{qty, desc, name, id});
     }
 
-    /**
-     *
-     * @return values of material ID and material added quantity
-     */
-    public int[] getExtraQtyInfo() {
-        int[] codeQty = new int[2];
-
-        codeQty[0] = (Integer) jcbAddQtyCode.getSelectedItem();
-        codeQty[1] = Integer.parseInt(jftAddQtyQty.getText());
-
-        return codeQty;
+    public int getExtraQtyId() {
+        return (Integer) jcbAddQtyCode.getSelectedItem();
+    }
+    
+    public int getExtraQtyQty() {
+        return Integer.parseInt(jftAddQtyQty.getText());
     }
 
     /**

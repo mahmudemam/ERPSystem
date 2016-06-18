@@ -67,12 +67,13 @@ public class WarehouseControl {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            final int[] extraQtyInfo = theView.getExtraQtyInfo();
-            if (extraQtyInfo[1] < 0) {
+            int id = theView.getExtraQtyId();
+            int qty = theView.getExtraQtyQty();
+            if (qty < 0) {
                 theView.warnUser("القيمة المضافة يجب أن تكون موجبة");
             } else {
                 try {
-                    RawMaterial material = theModel.addExtraQty(extraQtyInfo[0], extraQtyInfo[1]);
+                    RawMaterial material = theModel.addExtraQty(id, qty);
                     if (material != null) {
                         theView.updateMaterialQty(material.getId(), material.getQty());
                     }
