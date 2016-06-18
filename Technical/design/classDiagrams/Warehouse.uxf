@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>104</x>
+      <y>144</y>
+      <w>328</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>WarehouseModel
+--
+-materials: map&lt;Integer, RawMaterial&gt;
+-dbInstance: ERPSystemDB
+--
++WarehouseModel()
++getMaterials(): Collection&lt;RawMaterial&gt;
++getMaterialsCode(): Set&lt;Integer&gt;
++addNewMaterial(name: String, desc: String, qty: int, price: int): int 
++addExtraQty(id: int, qty: int): RawMaterial
++withdrawSomeMaterial(id: int, qty: int): RawMaterial
+fontsize=11</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>112</y>
+      <w>344</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>WarehouseControl
+--
+-theView: WarehouseView
+-theModel: WarehouseModel
+{innerclass
+AddNewMaterialListener
+--
+--
++actionPerformed(e: ActionEvent)
+innerclass}
+{innerclass
+AddExtraQtyListener
+--
+--
++actionPerformed(e: ActionEvent)
+innerclass}
+{innerclass
+WithdrawSomeMaterialListener
+--
+--
++actionPerformed(e: ActionEvent)
+innerclass}
+--
++WarehouseControl(theView: WarehouseView, theModel: WarehouseModel)
+fontsize=11</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>328</y>
+      <w>344</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>WarehouseView
+--
+-materialsCode: Set&lt;Integer&gt;
+--
++addNewMaterialListener(listener: ActionListener)
++addExtraQtyListener(listener: ActionListener)
++addWithdrawSomeMaterialListener(listener: ActionListener)
++warnUser(message: String)
++updateMaterialQty(id: int, qty: int)
++addNewMaterial(id: int, name: String, desc: String, qty: int, price: int )
++getExtraQtyId(): int
++getExtraQtyQty(): int
++getWithdrawQtyId(): int
++getWithdrawQtyQty(): int
++getNewMaterialName(): String
++getNewMaterialDesc(): String
++getNewMaterialQty(): int
++getNewMaterialPrice(): int
+fontsize=11</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>424</x>
+      <y>192</y>
+      <w>72</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>280</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>32</y>
+      <w>144</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>{interface}
+/ActionListener/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>56</y>
+      <w>24</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>704</x>
+      <y>56</y>
+      <w>24</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>728</x>
+      <y>56</y>
+      <w>24</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>104</x>
+      <y>328</y>
+      <w>328</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>RawMaterial
+--
+-id: int
+-name: String
+-description: String
+-qty: int
+-price: int
+--
++RawMaterial(id: int, name: String, description: String, qty: int, price: int)
++getID(): int
++getName(): String
++getDescription(): String
++getQty(): int
++addQty(qty: int)
++withdrawQty(qty: int): boolean
++getPrice(): int
++setPrice(price: int)
+fontsize=11</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>256</x>
+      <y>248</y>
+      <w>24</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
